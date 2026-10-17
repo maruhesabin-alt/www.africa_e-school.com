@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>AFRICA E-SCHOOL — Apprendre, créer, réussir</title>
+<meta name="description" content="AFRICA E-SCHOOL : formations en ligne en design, 3D, intelligence artificielle, marketing et business. Apprendre, créer, réussir."><meta name="theme-color" content="#03361b"><meta property="og:title" content="AFRICA E-SCHOOL"><meta property="og:description" content="Apprendre, créer, réussir : formations en ligne accessibles sur téléphone et ordinateur."><meta property="og:type" content="website"><link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b2415;--g1:#03361b;--g2:#0f7a2e;--g3:#4cc424;--bg:#f3f8f2;--card:#fff;--hd:rgba(255,255,255,.94);--mut:#5a6b5f;--line:#dbe6da;--warn:#b45309;box-sizing:border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6f2e6;--bg:#0a1a10;--card:#12261a;--hd:rgba(10,26,16,.94);--mut:#9db5a2;--line:#24402d;--warn:#f0a95b}}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;font:400 16px/1.55 Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--g3);outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:var(--hd);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;padding:8px 20px}
+header img{height:42px;width:auto}
+header b{font-weight:800;letter-spacing:.2px}
+header .sp{flex:1}
+.btn{border:0;border-radius:999px;padding:10px 20px;font-weight:600;background:var(--g2);color:#fff;transition:transform .15s,background .2s}
+.btn:hover{background:var(--g1);transform:translateY(-1px)}
+.btn.alt{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn.lime{background:var(--g3);color:var(--g1)}
+.btn[disabled]{background:#c9d3ca;color:#5b685e;cursor:not-allowed;transform:none}
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#2e9e2a55,transparent),linear-gradient(135deg,var(--g1),#0a5a24);color:#fff;padding:56px 20px 64px}
+.wrap{max-width:1180px;margin:0 auto}
+.hgx{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.hero h1{font-weight:800;font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;margin:0 0 14px;animation:rise .8s both}
+.hero h1 em{font-style:normal;color:var(--g3)}
+.hero p{max-width:52ch;color:#d4ecd2;margin:0 0 24px;animation:rise .8s .15s both}
+.lg{background:#fff;border-radius:26px;padding:16px;justify-self:center;animation:rise .8s .3s both;box-shadow:0 24px 50px -20px #000a}
+.lg img{display:block;width:min(300px,100%);height:auto}
+.stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.stats b{display:block;font-size:1.8rem;color:var(--g3)}
+.stats span{font-size:.85rem;color:#bfe0bd}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 18px;align-items:center}
+.tools input{flex:1 1 220px;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font:inherit;background:var(--card);color:var(--ink)}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:.88rem}
+.chip.on{background:var(--g2);color:#fff;border-color:var(--g2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px;padding-bottom:50px}
+.card{background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -14px #0b3d1d88}
+.thumb{height:160px;background-size:cover;background-position:center;position:relative;background-color:var(--g2)}
+.tag{position:absolute;top:10px;left:10px;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;background:#fff;color:var(--g1)}
+.tag.free{background:var(--g3)}
+.cb{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cb h3{margin:0;font-size:1.02rem;line-height:1.3}
+.cb p{margin:0;color:var(--mut);font-size:.88rem;flex:1}
+.stars{color:#e0a100;letter-spacing:2px;font-size:.95rem}
+.stars small{color:var(--mut);letter-spacing:0;margin-left:6px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.price{font-weight:800}
+.warn{color:var(--warn);font-size:.8rem}
+.ov{position:fixed;inset:0;z-index:50;background:rgba(3,30,15,.72);display:none;align-items:center;justify-content:center;padding:14px}
+.ov.on{display:flex;animation:fade .2s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.box{background:var(--card);color:var(--ink);border-radius:18px;width:min(980px,100%);max-height:94vh;overflow:auto;padding:20px;animation:pop .25s}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:none;opacity:1}}
+.player{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px}
+.frame{aspect-ratio:16/9;width:100%;border:0;border-radius:12px;background:#0b2415}
+.les{display:flex;flex-direction:column;gap:6px;max-height:68vh;overflow:auto;min-width:0}
+.les button{min-height:44px}
+.lesson-shell{margin:16px 0 34px}
+.lesson-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.lesson-main{min-width:0}
+.lesson-player{position:relative;width:100%;aspect-ratio:16/9;min-height:280px;background:#06150b;border-radius:16px;overflow:hidden;box-shadow:0 16px 42px #062d1830}
+.lesson-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lesson-player .player-message{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;color:#e9f5e9;background:#06150b}
+.lesson-tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.lesson-sidebar{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:14px;min-width:0}
+.lesson-sidebar[hidden]{display:none}
+.lesson-topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.lesson-title{font-size:clamp(1.05rem,2vw,1.45rem);margin:12px 0 8px}
+.lesson-search{display:flex;gap:6px;margin:10px 0}
+.lesson-search input{min-width:0}
+.lesson-list-empty{padding:14px;color:var(--mut);font-size:.9rem}
+.lesson-layout.cinema{grid-template-columns:minmax(0,1fr)}
+.lesson-layout.cinema .lesson-sidebar{display:none}
+.lesson-shell:fullscreen{background:var(--bg);padding:20px;overflow:auto}
+.lesson-shell:fullscreen .lesson-player{aspect-ratio:16/9;max-height:78vh}
+.catalog-search{display:flex;gap:8px;flex:1 1 320px;min-width:0}
+.catalog-search input{min-width:0}
+@media(max-width:760px){.lesson-layout{grid-template-columns:minmax(0,1fr)}.lesson-player{aspect-ratio:16/9;min-height:210px;border-radius:10px}.lesson-sidebar{order:2}.les{max-height:42vh}.lesson-tools .btn{flex:1 1 auto;padding:10px 12px}.lesson-shell{margin:10px -8px 24px}.lesson-sidebar{border-radius:12px}.lesson-shell:fullscreen{padding:10px}.lesson-shell:fullscreen .lesson-player{max-height:none;min-height:0}.catalog-search{flex:1 1 100%}}
+.les button{text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 12px;font-size:.88rem}
+.les button.on{background:var(--g2);color:#fff}
+.rate span{font-size:1.6rem;cursor:pointer;color:#8a948c}
+.rate span.on{color:#e0a100}
+label{display:block;font-size:.82rem;font-weight:600;margin:10px 0 3px}
+input[type=text],input[type=email],textarea,select{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font:inherit;background:var(--card);color:var(--ink)}
+.adm{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
+.adm summary{font-weight:600;cursor:pointer}
+.x{float:right;background:none;border:0;font-size:1.6rem;line-height:1;color:var(--ink)}
+footer{background:var(--g1);color:#bfe0bd;text-align:center;padding:26px 20px;font-size:.88rem}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:40px 0}
+@media(max-width:760px){.hg{grid-template-columns:1fr}.lg{order:-1}.lg img{width:200px}.player{grid-template-columns:1fr}.les{max-height:42vh}.hero{padding:36px 18px 48px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+main.wrap{padding:0 20px;overflow-x:clip}
+header nav{display:flex;gap:4px}
+header nav a{padding:9px 14px;border-radius:999px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;transition:background .2s}
+header nav a:hover{background:var(--line)}header nav a.on{background:var(--g2);color:#fff}
+#bMenu{display:none}
+.hgx{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.sec{padding:44px 0}.sec h2{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 6px}.sec>p{color:var(--mut);margin:0 0 22px}
+.cats,.adv,.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.cat,.adv>div,.steps>div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;transition:transform .2s,border-color .2s}
+.cat{cursor:pointer;text-align:left;color:var(--ink);font:inherit}.cat:hover{transform:translateY(-3px);border-color:var(--g3)}
+.cat b{display:block;font-size:1.05rem}.cat span{color:var(--mut);font-size:.85rem}
+.steps>div b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--g2);color:#fff;margin-bottom:8px}
+.faq{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:12px 16px;margin-bottom:10px}.faq summary{font-weight:600;cursor:pointer}.faq p{margin:8px 0 0;color:var(--mut)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+.fd{animation:fade .35s}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.card:hover .thumb img{transform:scale(1.06)}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,#03361bcc);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover .thumb::after{opacity:1}
+.thumb{background:linear-gradient(135deg,var(--g2),var(--g3))}
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--g3);transition:width .4s}
+.bk{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 16px;font-weight:600;margin:20px 0 8px;min-height:44px}
+.bk:hover{border-color:var(--g3)}
+.crumb{font-size:.85rem;color:var(--mut);margin-bottom:10px}.crumb a{color:var(--g2)}
+.banner{height:260px;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--g2),var(--g3))}.banner img{width:100%;height:100%;object-fit:cover}
+.two{display:grid;grid-template-columns:1fr 320px;gap:24px;margin:20px 0}
+.side{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;align-self:start;position:sticky;top:76px}
+.fw{position:relative;aspect-ratio:16/10;background:#0b2415;border-radius:12px;overflow:hidden}.fw iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.spin{position:absolute;top:50%;left:50%;width:30px;height:30px;margin:-15px;border:3px solid #fff4;border-top-color:var(--g3);border-radius:50%;animation:sp .9s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.les button.dn::after{content:" ✓"}
+.sel{border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:var(--card);color:var(--ink);font:inherit}
+.pvbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.pvbar .btn.on{background:var(--g1);color:#fff}
+.pvw{background:#0b2415;border-radius:14px;padding:14px;overflow:auto;display:flex;justify-content:center;max-height:70vh}
+.pvw iframe{border:0;background:#fff;height:62vh;max-width:100%;transition:width .3s}
+.pvw.m iframe{border:10px solid #111;border-radius:30px}
+@media(max-width:760px){header{padding:8px 12px;gap:6px}header b{font-size:.82rem}header .btn{padding:8px 12px;font-size:.8rem}#bMenu{display:inline-block}header nav{position:absolute;top:100%;left:0;right:0;background:var(--card);flex-direction:column;padding:10px;border-bottom:1px solid var(--line);display:none}header nav.on{display:flex;animation:fade .2s}.hgx{grid-template-columns:1fr}.two{grid-template-columns:1fr}.side{position:static}.banner{height:170px}}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <img src="logo.png" alt=""><b>AFRICA E-SCHOOL</b>
+  <nav id="nav" aria-label="Navigation principale"><a href="#/" data-n="home">Accueil</a><a href="#/catalogue" data-n="cat">Formations</a><a href="#/faq" data-n="faq">FAQ</a></nav>
+  <span class="sp"></span>
+  <button class="btn alt" id="bMenu" data-menu aria-label="Menu">☰</button>
+  <button class="btn alt" id="bAdmin">Administration</button>
+</header>
+<main id="app" class="wrap"></main>
+<footer><p style="margin:0 0 6px"><b>AFRICA E-SCHOOL</b> — Apprendre • Créer • Réussir</p><p style="margin:0"><a href="#/" style="color:#bfe0bd">Accueil</a> · <a href="#/catalogue" style="color:#bfe0bd">Formations</a> · <a href="#/faq" style="color:#bfe0bd">FAQ</a></p></footer>
+<div class="ov" id="ovFree"><div class="box" id="boxFree" style="max-width:440px"></div></div>
+<div class="ov" id="ovAdmin"><div class="box" id="boxAdmin"></div></div>
+<div class="ov" id="ovPrev"><div class="box"><button class="x" data-close="ovPrev" aria-label="Fermer">×</button><h2 style="margin:0 0 10px">Prévisualisation</h2>
+<div class="pvbar"><button class="btn alt on" data-pv="d">Ordinateur</button><button class="btn alt" data-pv="t">Tablette</button><button class="btn alt" data-pv="m">Téléphone</button><button class="btn alt" data-pv="r">Réinitialiser l’affichage</button></div>
+<div class="pvw" id="pvw"><iframe id="pvf" title="Aperçu du site"></iframe></div></div></div>
+<script>
+/* ===== CONFIGURATION ===== */
+const CONFIG = {
+  adminPin: 'CHANGER-CE-CODE',   // Code de l’administration (vérifié dans le navigateur uniquement)
+  checkoutEndpoint: '',          // Serveur de paiement (plus tard, quand des formations seront payantes)
+  accessEndpoint: ''             // Serveur qui confirme les droits d’accès après paiement
+};
+
+/* ===== DONNÉES INITIALES (liens fournis par vous ; toutes gratuites pour le moment) ===== */
+const D = (id, title, cat, url, note) => ({id, title, cat, url, note: note || '', desc: 'Description à compléter dans l’administration.', price: '', currency: 'USD', status: 'free', img: 'images/f' + id + '.svg', lessons: [], obj: '', pub: 'published'});
+const F = 'https://drive.google.com/drive/folders/';
+const DEFAULTS = [
+  D(1,'Bonus — Le hack pour avoir Gemini Premium, sans payer','Intelligence artificielle','https://drive.google.com/file/d/1m7aReSwbLtsGolcyQaP86fpSAV-dntlV/view'),
+  D(2,'Créer une application web no-code avec Bubble','Informatique',F+'1d0TUUwhyknaQ0iCKX1DDLz38e6_EsLNp'),
+  D(3,'Créer des images avec l’IA Midjourney','Design',F+'1140WM9l7dIMDh61nb0ooTS6JfwdlVbtG'),
+  D(4,'Blender — Débuter en modélisation 3D : cours complet','Design',F+'11Qm2U9xoNUnHaqMGrhZIYez9ROCjntwn'),
+  D(5,'Création de packshot produit 3D avec Blender','Design',F+'1_vFj6t11mwaYmshuOHch7VCQ2nZ_xqkE'),
+  D(6,'Bonus — Logiciel de modélisation Blender','Design','','Lien à corriger : l’identifiant fourni semble tronqué (32 caractères).'),
+  D(7,'Stratégie marketing — Cours ultime','Marketing',F+'1WySgBZhqoKZofR4wWncjbOsE1M2EP3tM'),
+  D(8,'Maîtriser la publicité sur les réseaux sociaux','Marketing',F+'1nosV8St4nH4FjGAxJS9c5uH_fxzpWhoA'),
+  D(9,'Démarrer un business dans l’affiliation','Business',F+'1wykRLnb0JS6b84WDhLJXcDjQdGvrkpla'),
+  D(10,'ChatGPT de A à Z — Formation ultime pour maîtriser ChatGPT','Intelligence artificielle',F+'1AlQyZTRUvjg8Fpl_am5078mqpWBS6ZLa'),
+  D(11,'Vivre de ses livres numériques grâce à ChatGPT','Business',F+'1uz0fZW1a3q8PQNWo_YNAAjLIV6VvdIAU'),
+  D(12,'Combiner ChatGPT et Excel pour optimiser son temps de travail','Intelligence artificielle','','Lien à corriger : l’identifiant fourni contient une espace.'),
+  D(13,'ChatGPT — Automatiser vos Facebook Ads avec simplicité','Marketing',F+'14Ep_UnKVesXfuTT67sPDYP21jEkfllWt'),
+  D(14,'Stratégie pour percer sur TikTok, Instagram et YouTube Shorts','Marketing',F+'1HclMaGTQgYq3Rf6Ynr7fDEuL5-mhd11P'),
+  D(15,'Freelance — Débuter efficacement sur ComeUp','Business',F+'1_YYBFizCdezmT4e5uNQzntoEJzj-DBIR')
+];
+
+/* ===== STOCKAGE LOCAL (démo) ===== */
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+let courses = store.get('aes_courses_v2', null) || JSON.parse(JSON.stringify(DEFAULTS));
+let ent = store.get('aes_ent', []);
+let ratings = store.get('aes_ratings', {});
+let user = store.get('aes_user', null);
+let cat = 'Toutes', term = '';
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const save = () => store.set('aes_courses_v2', courses);
+const imgSrc = p => (window.IMGS && window.IMGS[p]) || p;
+
+/* ===== LIENS GOOGLE DRIVE ===== */
+function parseDrive(u){
+  u = (u || '').trim();
+  if(!u) return {err:'Aucun lien renseigné'};
+  if(/\s/.test(u)) return {err:'Le lien contient une espace'};
+  let m = u.match(/drive\.google\.com\/(?:file\/d|open\?id=|uc\?id=|drive\/folders)\/?([\w-]+)/);
+  if(!m) m = u.match(/drive\.google\.com\/(file\/d|drive\/folders)\/([\w-]+)/);
+  if(!m) return {err:'Lien Google Drive non reconnu'};
+  let type, id;
+  if(m.length===3){ type = m[1] === 'file/d' ? 'file' : 'folder'; id = m[2]; }
+  else { type = /folders/.test(u) ? 'folder' : 'file'; id = m[1]; }
+  if(!id || id.length < 10) return {err:'Identifiant Drive incomplet'};
+  return {type,id};
+}
+function embedSrc(u){
+  const p = parseDrive(u); if(p.err || p.type !== 'file') return null;
+  return 'https://drive.google.com/file/d/' + encodeURIComponent(p.id) + '/preview';
+}
+function driveFolderSrc(u){ const p=parseDrive(u); return !p.err && p.type==='folder' ? 'https://drive.google.com/embeddedfolderview?id='+encodeURIComponent(p.id)+'#list' : null; }
+
+
+/* ===== ACCÈS ===== */
+const isFree = c => c.status === 'free';
+const hasAccess = c => isFree(c) ? !!user : ent.includes(c.id); // paiement : à vérifier côté serveur en production
+const avg = id => { const r = ratings[id] || []; return r.length ? r.reduce((a,b)=>a+b,0)/r.length : 0; };
+const starTxt = n => '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math.round(n));
+
+/* ===== OUTILS V3 ===== */
+const PV = new URLSearchParams(location.search).has('preview');
+const log = m => { const l = store.get('aes_log', []); l.push(new Date().toISOString().slice(0,16) + ' ' + m); store.set('aes_log', l.slice(-50)); };
+let prog = store.get('aes_prog', {});
+const live = () => courses.filter(c => c.pub !== 'draft' && c.pub !== 'archived');
+const lessonsOf = c => c.lessons.length ? c.lessons : (parseDrive(c.url).type === 'file' ? [{t:'Contenu de la formation', url:c.url}] : []);
+const pct = c => { const n=lessonsOf(c).length; return n ? Math.round(((prog[c.id] && prog[c.id].done || []).length / n) * 100) : 0; };
+let fprice = 'all', sort = 'def', cur = null;
+
+/* ===== NAVIGATION ET RETOUR ===== */
+let hist = [location.hash || '#/'];
+const go = h => { location.hash = h; };
+const FALL = h => /^#\/learn\//.test(h) ? '#/course/' + h.split('/')[2] : /^#\/course\//.test(h) ? '#/catalogue' : '#/';
+const back = () => hist.length > 1 ? history.back() : go(FALL(location.hash || '#/'));
+addEventListener('hashchange', () => { const h = location.hash || '#/'; if(hist.length > 1 && hist[hist.length-2] === h) hist.pop(); else if(hist[hist.length-1] !== h) hist.push(h); route(); });
+
+/* ===== PAGES ===== */
+const img = c => c.img ? `<img src="${esc(imgSrc(c.img))}" alt="" loading="lazy" decoding="async" onerror="this.remove()">` : '';
+const bk = '<button class="bk" data-back>← Retour</button>';
+function card(c){
+  const bad = parseDrive(c.url).err, r = (ratings[c.id]||[]).length, p = pct(c);
+  const price = isFree(c) ? '<span class="price">Gratuit</span>' : (c.price ? `<span class="price">${esc(c.price)} ${esc(c.currency)}</span>` : '<span class="warn">Prix à définir</span>');
+  const act = bad ? '' : isFree(c) ? `<button class="btn alt" data-free="${c.id}">${p?'Continuer':'Commencer gratuitement'}</button>` : '';
+  return `<article class="card rv"><div class="thumb">${img(c)}<span class="tag ${isFree(c)?'free':''}">${isFree(c)?'Gratuit':'Payant'}</span></div>
+  <div class="cb"><span class="warn" style="color:var(--mut)">${esc(c.cat)}</span><h3>${esc(c.title)}</h3><p>${esc(c.desc)}</p>
+  <div class="stars">${r?starTxt(avg(c.id)):'☆☆☆☆☆'}<small>${r?avg(c.id).toFixed(1)+' ('+r+' avis)':'Aucun avis'}</small></div>
+  ${p?`<div class="bar" aria-label="Progression ${p}%"><i style="width:${p}%"></i></div>`:''}
+  ${bad?`<div class="warn">${esc(c.note||bad)}</div>`:''}
+  <div class="row">${price}<button class="btn" data-go="#/course/${c.id}">Voir la formation</button></div>${act?`<div>${act}</div>`:''}</div></article>`;
+}
+function pHome(){
+  const L = live(), cats = [...new Set(L.map(c => c.cat).filter(Boolean))];
+  return `<section class="hero" style="margin:0 -20px;padding:56px 20px 64px;overflow:hidden"><div class="hgx"><div>
+  <h1>Apprendre aujourd’hui, <em>bâtir une Afrique meilleure</em> demain</h1>
+  <p>Des formations en ligne accessibles sur téléphone et ordinateur : design, 3D, intelligence artificielle, marketing et business.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn lime" data-go="#/catalogue">Découvrir les formations</button><button class="btn alt" data-scroll="cats">Explorer les catégories</button></div>
+  <div class="stats"><div><b>${L.length}</b><span>formations au catalogue</span></div><div><b>${L.filter(isFree).length}</b><span>formations gratuites</span></div></div></div>
+  <div class="lg"><img src="logo.png" alt="AFRICA E-SCHOOL — Apprendre, créer, réussir"></div></div></section>
+  <section class="sec rv" id="cats"><h2>Catégories</h2><p>Choisissez le domaine qui vous intéresse.</p><div class="cats">${cats.map(k=>`<button class="cat" data-cat="${esc(k)}"><b>${esc(k)}</b><span>${L.filter(c=>c.cat===k).length} formation(s)</span></button>`).join('')}</div></section>
+  <section class="sec"><h2>À découvrir</h2><p>Une sélection du catalogue.</p><div class="grid" style="padding:0">${L.slice(0,6).map(card).join('')}</div><p style="margin-top:18px"><button class="btn alt" data-go="#/catalogue">Voir toutes les formations</button></p></section>
+  <section class="sec rv"><h2>Comment ça marche</h2><div class="steps"><div><b>1</b>Choisissez une formation dans le catalogue.</div><div><b>2</b>Indiquez votre nom et votre e-mail pour accéder aux formations gratuites.</div><div><b>3</b>Apprenez à votre rythme : votre progression est enregistrée.</div></div></section>
+  <section class="sec rv"><h2>Pourquoi AFRICA E-SCHOOL</h2><div class="adv"><div><b>Sur tous vos écrans</b><br>Téléphone, tablette et ordinateur.</div><div><b>Apprentissage intégré</b><br>Les leçons s’ouvrent dans la plateforme.</div><div><b>Reprise facile</b><br>Retrouvez la dernière leçon commencée.</div><div><b>Domaines variés</b><br>IA, 3D, marketing, business.</div></div></section>
+  <section class="sec rv" id="faq"><h2>Questions fréquentes</h2>
+  <details class="faq"><summary>Les formations sont-elles gratuites ?</summary><p>Pour le moment, oui. Les formations payantes arriveront avec le paiement, actuellement en préparation.</p></details>
+  <details class="faq"><summary>Dois-je créer un compte ?</summary><p>Indiquez votre nom et votre e-mail pour ouvrir une formation gratuite. Les comptes sécurisés avec mot de passe seront ajoutés avec le serveur.</p></details>
+  <details class="faq"><summary>Quels moyens de paiement seront acceptés ?</summary><p>Ils seront annoncés lorsque le prestataire de paiement sera activé et vérifié.</p></details>
+  <details class="faq"><summary>Le contenu ne s’affiche pas, que faire ?</summary><p>Réessayez avec une meilleure connexion. Si le problème persiste, le lien de la leçon est peut-être à corriger.</p></details></section>`;
+}
+function pCat(){
+  const L = live(), cats = ['Toutes', ...new Set(L.map(c => c.cat).filter(Boolean))];
+  let l = L.filter(c => (cat==='Toutes'||c.cat===cat) && (c.title+' '+c.cat+' '+c.desc+' '+(c.note||'')+' '+(c.obj||'')).toLowerCase().includes(term) && (fprice==='all' || (fprice==='free')===isFree(c)));
+  if(sort==='az') l = [...l].sort((a,b) => a.title.localeCompare(b.title,'fr'));
+  return `${bk}<div class="crumb"><a href="#/">Accueil</a> › Formations</div><h2 style="margin:0">Formations</h2>
+  <div class="tools"><div class="catalog-search"><input type="search" id="q" placeholder="Rechercher par titre, catégorie ou mot-clé…" aria-label="Rechercher une formation" value="${esc(term)}">${term?'<button class="btn alt" data-clear-search aria-label="Effacer la recherche">Effacer</button>':''}</div>
+  <select class="sel" id="fp" aria-label="Prix"><option value="all">Tous les prix</option><option value="free" ${fprice==='free'?'selected':''}>Gratuites</option><option value="paid" ${fprice==='paid'?'selected':''}>Payantes</option></select>
+  <select class="sel" id="so" aria-label="Tri"><option value="def">Ordre du catalogue</option><option value="az" ${sort==='az'?'selected':''}>A à Z</option></select></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">${cats.map(k=>`<button class="chip ${k===cat?'on':''}" data-cat="${esc(k)}">${esc(k)}</button>`).join('')}</div>
+  <div class="grid" id="grid">${l.length?l.map(card).join(''):'<div class="empty">Aucune formation ne correspond. Essayez un autre mot ou une autre catégorie.</div>'}</div>`;
+}
+function pCourse(c){
+  const parsed = parseDrive(c.url), bad = parsed.err, L = lessonsOf(c), p = pct(c), obj = (c.obj||'').split('\n').filter(Boolean);
+  const rel = live().filter(x => x.id !== c.id && x.cat === c.cat).slice(0,3);
+  let cta;
+  if(bad) cta = '<button class="btn" disabled>Bientôt disponible</button><p class="warn">' + esc(c.note || bad) + '</p>';
+  else if(!L.length) cta = '<button class="btn" disabled>Leçons à configurer</button><p class="warn">Ce lien pointe vers un dossier Drive. Pour construire un lecteur interne, l’administrateur doit ajouter les liens individuels des vidéos, ou configurer l’API Drive côté serveur.</p>';
+  else if(isFree(c)) cta = hasAccess(c) ? `<button class="btn" data-go="#/learn/${c.id}">${p?'Reprendre la formation':'Commencer la formation'}</button>` : `<button class="btn" data-free="${c.id}">Commencer gratuitement</button>`;
+  else cta = '<button class="btn" disabled>Paiement en préparation</button><p class="warn">Cette formation sera disponible à l’achat dès l’activation du paiement.</p>';
+  return `${bk}<div class="crumb"><a href="#/">Accueil</a> › <a href="#/catalogue">Formations</a> › ${esc(c.title)}</div>
+  <div class="banner">${img(c)}</div><div class="two"><div><h1 style="margin:0 0 8px;font-size:clamp(1.4rem,3.5vw,2.2rem)">${esc(c.title)}</h1><p>${esc(c.desc)}</p>
+  ${obj.length?`<h3>Objectifs</h3><ul>${obj.map(o=>`<li>${esc(o)}</li>`).join('')}</ul>`:''}
+  <h3>Programme</h3>${L.length?`<div class="les" style="max-height:none">${L.map((l,i)=>`<button data-preview-lesson="${i}" data-course="${c.id}" class="${(prog[c.id]&&prog[c.id].done||[]).includes(i)?'dn':''}">${esc(l.t)}</button>`).join('')}</div>`:`<div class="adm warn">Aucune leçon individuelle configurée. Ajoutez les liens vidéo dans Administration.</div>`}
+  <h3>Avis des apprenants</h3><p style="color:var(--mut)">${(ratings[c.id]||[]).length?starTxt(avg(c.id))+' '+avg(c.id).toFixed(1)+' ('+ratings[c.id].length+' notes enregistrées sur cet appareil)':'Aucun avis pour le moment.'}</p></div>
+  <aside class="side"><div class="price" style="font-size:1.4rem">${isFree(c)?'Gratuit':(c.price?esc(c.price)+' '+esc(c.currency):'Prix à définir')}</div>
+  <p style="font-size:.85rem;color:var(--mut)">${isFree(c)?'Conditions d’accès : nom, e-mail et acceptation des conditions d’utilisation (usage personnel).':'Accès après confirmation du paiement.'}</p>${p?`<div class="bar"><i style="width:${p}%"></i></div><p style="font-size:.8rem">${p}% terminé</p>`:''}${cta}</aside></div>
+  ${rel.length?`<h3>Formations similaires</h3><div class="grid" style="padding:0">${rel.map(card).join('')}</div>`:''}`;
+}
+function pLearn(c){
+  const L = lessonsOf(c), pr = prog[c.id] || {done:[], last:0};
+  if(!L.length) return `${bk}<div class="crumb"><a href="#/catalogue">Formations</a> › <a href="#/course/${c.id}">${esc(c.title)}</a></div><div class="adm warn"><b>Lecteur non configuré</b><p>Ce cours pointe vers un dossier Google Drive. Pour afficher les leçons à l’intérieur d’AFRICA E-SCHOOL, ajoutez les liens individuels des vidéos depuis Administration. L’API Drive n’est pas configurée dans cette version.</p><button class="btn" data-go="#/course/${c.id}">Retour à la formation</button></div>`;
+  const i = Math.max(0,Math.min(Number(pr.last)||0,L.length-1));
+  return `${bk}<div class="crumb"><a href="#/catalogue">Formations</a> › <a href="#/course/${c.id}">${esc(c.title)}</a> › Apprentissage</div>
+  <section class="lesson-shell" id="lessonShell" data-course="${c.id}" data-lesson="${i}">
+    <div class="lesson-topline"><div><span class="tag free" style="position:static;display:inline-block">AFRICA E-SCHOOL</span><h1 class="lesson-title">${esc(c.title)}</h1></div><button class="btn alt" data-go="#/course/${c.id}">← Retour à la formation</button></div>
+    <div class="bar" aria-label="Progression ${pct(c)}%"><i style="width:${pct(c)}%"></i></div><p style="font-size:.85rem;color:var(--mut);margin:7px 0">${pct(c)}% terminé · ${L.length} leçon(s)</p>
+    <div class="lesson-layout" id="lessonLayout">
+      <div class="lesson-main">
+        <div class="lesson-player" id="lessonPlayer" aria-live="polite"><div class="player-message" id="playerMessage"><span class="spin" aria-hidden="true"></span><span>Préparation de la leçon…</span></div></div>
+        <h2 id="activeLessonTitle" class="lesson-title">${esc(L[i].t)}</h2>
+        <div class="lesson-tools"><button class="btn alt" data-ls="${i-1}" ${i===0?'disabled':''}>← Précédente</button><button class="btn" data-ls="${i+1}" ${i>=L.length-1?'disabled':''}>Suivante →</button><button class="btn lime" data-fin="${i}">✓ Marquer terminée</button><button class="btn alt" data-cinema>Mode cinéma</button><button class="btn alt" data-fullscreen>Plein écran</button><button class="btn alt" data-toggle-lessons aria-expanded="true">Masquer les leçons</button></div>
+        <p id="playerStatus" role="status" style="font-size:.86rem;color:var(--mut)">Chargement du lecteur intégré…</p>
+        <div class="rate" style="margin-top:10px"><b style="font-size:.9rem">Votre note (enregistrée sur cet appareil) : </b>${[1,2,3,4,5].map(n=>`<span data-r="${n}">★</span>`).join('')}</div>
+      </div>
+      <aside class="lesson-sidebar" id="lessonSidebar"><h3 style="margin:0">Contenu du cours</h3><div class="lesson-search"><input id="lessonFilter" type="search" placeholder="Rechercher une leçon" aria-label="Rechercher une leçon"></div><div class="les" id="lessonList">${L.map((l,k)=>`<button class="${k===i?'on':''} ${(pr.done||[]).includes(k)?'dn':''}" data-ls="${k}" aria-current="${k===i?'true':'false'}"><span style="display:block;font-size:.72rem;opacity:.8">LEÇON ${k+1}</span>${esc(l.t)}</button>`).join('')}</div></aside>
+    </div>
+  </section>`;
+}
+function loadLesson(c, i){
+  const L=lessonsOf(c); if(i<0||i>=L.length) return;
+  const shell=$('#lessonShell'); if(!shell) return;
+  const pr=prog[c.id] || (prog[c.id]={done:[],last:0}); pr.last=i; store.set('aes_prog',prog);
+  shell.dataset.lesson=String(i);
+  const title=$('#activeLessonTitle'), player=$('#lessonPlayer'), status=$('#playerStatus');
+  if(title) title.textContent=L[i].t;
+  if(!player) return;
+  player.innerHTML='<div class="player-message" id="playerMessage"><span class="spin" aria-hidden="true"></span><span>Chargement de la leçon…</span></div>';
+  if(status) status.textContent='Chargement du lecteur intégré…';
+  const src=embedSrc(L[i].url), parsed=parseDrive(L[i].url);
+  if(!src){
+    const reason=parsed.err || (parsed.type==='folder'?'Ce lien est un dossier Google Drive, pas une vidéo. Ajoutez les liens individuels des vidéos dans Administration.':'Ce type de ressource ne peut pas être intégré comme vidéo.');
+    player.innerHTML=`<div class="player-message"><strong>Vidéo non disponible dans le lecteur</strong><span>${esc(reason)}</span><span>Vérifiez le lien et les autorisations de partage Google Drive.</span></div>`;
+    if(status) status.textContent='Impossible de charger cette ressource. Le lien ou les permissions doivent être vérifiés.';
+  } else {
+    const iframe=document.createElement('iframe'); iframe.title=L[i].t; iframe.src=src; iframe.allow='autoplay; encrypted-media; picture-in-picture; fullscreen'; iframe.allowFullscreen=true; iframe.referrerPolicy='strict-origin-when-cross-origin'; iframe.loading='eager';
+    let settled=false; const timer=setTimeout(()=>{ if(settled) return; const msg=$('#playerMessage'); if(msg){msg.innerHTML='<strong>Le lecteur met du temps à répondre</strong><span>Vérifiez la connexion et les autorisations de partage de cette vidéo.</span><button class="btn alt" id="retryLesson">Réessayer</button>'; } if(status) status.textContent='Le navigateur ne permet pas de confirmer si la vidéo est lisible. Vérifiez son partage.'; },12000);
+    iframe.addEventListener('load',()=>{settled=true;clearTimeout(timer);const msg=$('#playerMessage');if(msg)msg.remove();if(status)status.textContent='Lecteur chargé. Si la vidéo ne démarre pas, le partage Drive peut être restreint.';});
+    player.appendChild(iframe);
+  }
+  $('#lessonList')?.querySelectorAll('[data-ls]').forEach(b=>{const k=+b.dataset.ls;b.classList.toggle('on',k===i);b.setAttribute('aria-current',k===i?'true':'false');});
+  document.querySelectorAll('.lesson-tools [data-ls]').forEach(b=>{const k=+b.dataset.ls;b.disabled=k<0||k>=L.length;});
+  const fin=$('[data-fin]'); if(fin) fin.dataset.fin=String(i);
+}
+
+function route(){
+  const h = location.hash || '#/', p = h.split('/'), id = +p[2], c = courses.find(x => x.id === id);
+  let html, pg = 'home';
+  if(p[1]==='catalogue'){ html = pCat(); pg = 'cat'; }
+  else if(p[1]==='course' && c){ html = pCourse(c); pg = 'cat'; }
+  else if(p[1]==='learn' && c){ if(!hasAccess(c) || !lessonsOf(c).length){ go('#/course/' + id); return; } cur = c; html = pLearn(c); pg = 'cat'; }
+  else { html = pHome(); if(p[1]==='faq') pg = 'faq'; }
+  const app = $('#app'); app.innerHTML = html; app.classList.remove('fd'); void app.offsetWidth; app.classList.add('fd');
+  document.title = (c && p[1] ? c.title + ' — ' : '') + 'AFRICA E-SCHOOL';
+  document.querySelectorAll('#nav a').forEach(a => a.classList.toggle('on', a.dataset.n === pg));
+  $('#nav').classList.remove('on');
+  if(pg==='faq') $('#faq').scrollIntoView(); else scrollTo(0,0);
+  watch();
+  if(p[1]==='learn' && c && lessonsOf(c).length) loadLesson(c, Math.max(0,Math.min(Number((prog[c.id]||{}).last)||0,lessonsOf(c).length-1)));
+}
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.1}) : null;
+function watch(){ document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('in')); }
+function setLesson(c, i, done){
+  const pr = prog[c.id] || (prog[c.id] = {done:[], last:0});
+  if(done !== undefined && !pr.done.includes(done)) pr.done.push(done);
+  pr.last = Math.max(0, Math.min(i, lessonsOf(c).length - 1)); store.set('aes_prog', prog);
+  const shell=$('#lessonShell'); if(shell){ const pctNow=pct(c); const bar=shell.querySelector('.bar i');if(bar)bar.style.width=pctNow+'%';const label=shell.querySelector('.bar')?.nextElementSibling;if(label)label.textContent=pctNow+'% terminé · '+lessonsOf(c).length+' leçon(s)';const active=$('#lessonList')?.querySelector('[data-ls="'+done+'"]');if(active && done!==undefined)active.classList.add('dn');const msg=$('#playerStatus');if(msg)msg.textContent='Progression enregistrée sur cet appareil.'; }
+}
+/* ===== PRÉVISUALISATION ===== */
+function pvSet(m){
+  const w = {d:'100%', t:'768px', m:'375px'}, f = $('#pvf');
+  if(m === 'r'){ m = 'd'; f.src = location.href.split('#')[0].split('?')[0] + '?preview=1'; }
+  else if(!f.src) f.src = location.href.split('#')[0].split('?')[0] + '?preview=1' + (location.hash || '');
+  f.style.width = w[m]; $('#pvw').classList.toggle('m', m === 'm');
+  document.querySelectorAll('[data-pv]').forEach(b => b.classList.toggle('on', b.dataset.pv === m));
+}
+
+/* ===== ACCÈS GRATUIT ===== */
+function openFree(id){
+  const c = courses.find(x => x.id === id);
+  $('#boxFree').innerHTML = `<button class="x" data-close="ovFree" aria-label="Fermer">×</button><h2 style="margin:0 0 6px;font-size:1.15rem">${esc(c.title)}</h2>
+  <p style="color:var(--mut);font-size:.9rem">Indiquez vos coordonnées pour accéder gratuitement à cette formation.</p>
+  <label>Nom complet</label><input type="text" id="fName" value="${esc(user?user.name:'')}">
+  <label>Adresse e-mail</label><input type="email" id="fMail" value="${esc(user?user.mail:'')}">
+  <label style="font-weight:400"><input type="checkbox" id="fOk"> J’accepte les conditions d’utilisation : usage personnel, sans redistribution du contenu.</label>
+  <p class="warn" id="fErr"></p><button class="btn" id="fGo" data-id="${id}">Accéder à la formation</button>`;
+  $('#ovFree').classList.add('on');
+}
+
+/* ===== PAIEMENT (pour plus tard) ===== */
+async function buy(id){
+  if(!CONFIG.checkoutEndpoint){ alert('Le paiement n’est pas encore configuré.'); return; }
+  try{
+    const r = await fetch(CONFIG.checkoutEndpoint, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({courseId:id})});
+    const j = await r.json();
+    if(j.url) location.href = j.url; else throw new Error('Réponse invalide');
+  }catch(e){ alert('Impossible de lancer le paiement. Réessayez dans un instant.'); }
+}
+async function syncAccess(){
+  if(!CONFIG.accessEndpoint) return;
+  try{ const r = await fetch(CONFIG.accessEndpoint, {credentials:'include'}); const j = await r.json(); if(Array.isArray(j.courses)){ ent = j.courses; store.set('aes_ent', ent); render(); } }catch(e){}
+}
+
+/* ===== ADMINISTRATION ===== */
+function openAdmin(){
+  const p = prompt('Code d’administration'); if(p !== CONFIG.adminPin){ if(p !== null) alert('Code incorrect.'); return; }
+  drawAdmin(); $('#ovAdmin').classList.add('on');
+}
+function drawAdmin(){
+  $('#boxAdmin').innerHTML = `<button class="x" data-close="ovAdmin" aria-label="Fermer">×</button><h2 style="margin:0 0 4px">Administration</h2>
+  <p class="warn">Version de démonstration : les modifications restent sur cet appareil. Les accès payants ne sont pas sécurisés côté serveur tant que l’API d’authentification et de droits n’est pas déployée.</p><p style="font-size:.9rem;color:var(--mut)">Pour les dossiers Google Drive, ajoutez les liens individuels des vidéos dans « Leçons ». L’API Drive serveur n’est pas configurée dans cette version.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-a="add">Ajouter une formation</button><button class="btn alt" data-a="exp">Exporter (JSON)</button><button class="btn alt" data-a="imp">Importer (JSON)</button><button class="btn alt" data-pvopen>Prévisualiser</button><button class="btn alt" data-a="chk">Vérifier les liens</button><button class="btn alt" data-a="rst">Rétablir le catalogue initial</button></div>
+  <p style="font-size:.8rem;color:var(--mut)"><b>Journal :</b> ${esc(store.get('aes_log',[]).slice(-5).join(' | ')||'vide')}</p>
+  ${courses.map((c,i)=>`<details class="adm" data-i="${i}"><summary>${esc(c.title)} ${parseDrive(c.url).err?'<span class="warn">— lien à corriger</span>':''}</summary>
+  <label>Titre</label><input type="text" data-f="title" value="${esc(c.title)}">
+  <label>Description</label><textarea rows="2" data-f="desc">${esc(c.desc)}</textarea>
+  <label>Publication</label><select data-f="pub"><option value="published" ${c.pub!=='draft'&&c.pub!=='archived'?'selected':''}>Publiée</option><option value="draft" ${c.pub==='draft'?'selected':''}>Brouillon</option><option value="archived" ${c.pub==='archived'?'selected':''}>Archivée</option></select><label>Objectifs pédagogiques (un par ligne)</label><textarea rows="3" data-f="obj">${esc(c.obj)}</textarea><label>Catégorie</label><input type="text" data-f="cat" value="${esc(c.cat)}">
+  <label>Image (adresse du fichier ou web)</label><input type="text" data-f="img" value="${esc(c.img)}">
+  <label>Lien Google Drive source</label><input type="text" data-f="url" value="${esc(c.url)}">
+  <label>Statut</label><select data-f="status"><option value="free" ${c.status==='free'?'selected':''}>Gratuit</option><option value="paid" ${c.status==='paid'?'selected':''}>Payant (verrouillé)</option></select>
+  <label>Prix</label><input type="text" data-f="price" value="${esc(c.price)}" placeholder="Ex. 15">
+  <label>Devise</label><input type="text" data-f="currency" value="${esc(c.currency)}">
+  <label>Leçons (titre et lien individuel de la vidéo Drive — pas un dossier)</label>
+  ${c.lessons.map((l,j)=>`<div style="display:flex;gap:6px;margin-bottom:6px"><input type="text" data-l="${j}" data-k="t" value="${esc(l.t)}" placeholder="Titre"><input type="text" data-l="${j}" data-k="url" value="${esc(l.url)}" placeholder="Lien"><button class="btn alt" data-a="dl" data-j="${j}">×</button></div>`).join('')}
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn alt" data-a="al">Ajouter une leçon</button><button class="btn" data-a="sv">Enregistrer</button><button class="btn alt" data-a="rm">Supprimer</button></div></details>`).join('')}`;
+}
+function adminAct(btn){
+  const a = btn.dataset.a, det = btn.closest('details'), i = det ? +det.dataset.i : -1;
+  const open = det ? det.open : false;
+  if(det){ det.querySelectorAll('[data-f]').forEach(el => courses[i][el.dataset.f] = el.value.trim());
+    det.querySelectorAll('[data-l]').forEach(el => courses[i].lessons[+el.dataset.l][el.dataset.k] = el.value.trim()); }
+  if(a==='chk'){ alert(courses.map(c=>{const e=parseDrive(c.url).err;return e?'• '+c.title+' : '+e:null}).filter(Boolean).join('\n')||'Format de tous les liens valide (accès réel non testé).'); return; }
+  log(a+' '+(courses[i]?courses[i].title:''));
+  if(a==='add') courses.push({id:Date.now(), title:'Nouvelle formation', cat:'', url:'', note:'', desc:'Description à compléter.', price:'', currency:'USD', status:'free', img:'', lessons:[]});
+  if(a==='al') courses[i].lessons.push({t:'Nouvelle leçon', url:''});
+  if(a==='dl') courses[i].lessons.splice(+btn.dataset.j, 1);
+  if(a==='rm' && confirm('Supprimer cette formation ?')) courses.splice(i, 1);
+  if(a==='gr'){ const id = courses[i].id; if(!ent.includes(id)) ent.push(id); store.set('aes_ent', ent); }
+  if(a==='rst' && confirm('Remplacer tout le catalogue par la version initiale ?')) courses = JSON.parse(JSON.stringify(DEFAULTS));
+  if(a==='exp'){ const b = new Blob([JSON.stringify(courses,null,2)],{type:'application/json'}), l = document.createElement('a'); l.href = URL.createObjectURL(b); l.download = 'catalogue.json'; l.click(); return; }
+  if(a==='imp'){ const t = prompt('Collez le JSON du catalogue'); if(t){ try{ const j = JSON.parse(t); if(Array.isArray(j)) courses = j; }catch(e){ alert('JSON invalide.'); } } }
+  save(); render(); drawAdmin();
+  if(open && a!=='rm' && a!=='rst'){ const d = document.querySelector(`#boxAdmin details[data-i="${i}"]`); if(d) d.open = true; }
+}
+
+/* ===== ÉVÉNEMENTS ===== */
+document.addEventListener('click', e => {
+  const t = e.target.closest('button,span[data-r]'); if(!t) return;
+  const d = t.dataset;
+  if('back' in d) back();
+  else if(d.go) go(d.go);
+  else if('menu' in d) $('#nav').classList.toggle('on');
+  else if(d.scroll) $('#' + d.scroll).scrollIntoView({behavior:'smooth'});
+  else if(d.cat){ cat = d.cat; if((location.hash||'#/') === '#/catalogue') route(); else go('#/catalogue'); }
+  else if('clearSearch' in d){ term=''; route(); const q=$('#q'); if(q) q.focus(); }
+  else if(d.previewLesson !== undefined){ const c=courses.find(x=>x.id===+d.course); if(c && lessonsOf(c).length) { if(hasAccess(c)) { prog[c.id]=prog[c.id]||{done:[],last:0};prog[c.id].last=+d.previewLesson;store.set('aes_prog',prog);go('#/learn/'+c.id); } else openFree(c.id); } }
+  else if(d.ls !== undefined){ if(!t.disabled && cur){ const L=lessonsOf(cur);const idx=+d.ls;if(idx>=0&&idx<L.length){ loadLesson(cur,idx); } } }
+  else if('cinema' in d){ $('#lessonLayout')?.classList.toggle('cinema'); t.textContent=$('#lessonLayout')?.classList.contains('cinema')?'Quitter le mode cinéma':'Mode cinéma'; }
+  else if('toggleLessons' in d){ const side=$('#lessonSidebar');if(side){side.hidden=!side.hidden;t.setAttribute('aria-expanded',String(!side.hidden));t.textContent=side.hidden?'Afficher les leçons':'Masquer les leçons';} }
+  else if('fullscreen' in d){ const el=$('#lessonPlayer');if(el?.requestFullscreen) el.requestFullscreen().catch(()=>alert('Le plein écran n’est pas disponible dans ce navigateur.'));else alert('Le plein écran n’est pas pris en charge par ce navigateur.'); }
+  else if(t.id==='retryLesson'){ if(cur) loadLesson(cur,Number($('#lessonShell')?.dataset.lesson)||0); }
+  else if(d.fin !== undefined && cur) setLesson(cur, Number($('#lessonShell')?.dataset.lesson)||+d.fin, +d.fin);
+  else if(d.free){ const c = courses.find(x => x.id === +d.free); if(user) go('#/learn/' + c.id); else openFree(c.id); }
+  else if(d.close) $('#' + d.close).classList.remove('on');
+  else if(d.pv){ pvSet(d.pv); }
+  else if('pvopen' in d){ $('#ovPrev').classList.add('on'); pvSet('d'); }
+  else if(d.r){ const a = ratings[cur.id] || (ratings[cur.id] = []); a.push(+d.r); store.set('aes_ratings', ratings); t.parentNode.querySelectorAll('span').forEach(s => s.classList.toggle('on', +s.dataset.r <= +d.r)); }
+  else if(d.a) adminAct(t);
+  else if(t.id === 'bAdmin') openAdmin();
+  else if(t.id === 'fGo'){
+    const n = $('#fName').value.trim(), m = $('#fMail').value.trim();
+    if(!n || !/^\S+@\S+\.\S+$/.test(m)){ $('#fErr').textContent = 'Saisissez votre nom et une adresse e-mail valide.'; return; }
+    if(!$('#fOk').checked){ $('#fErr').textContent = 'Acceptez les conditions pour continuer.'; return; }
+    user = {name:n, mail:m}; store.set('aes_user', user);
+    $('#ovFree').classList.remove('on'); go('#/learn/' + d.id);
+  }
+});
+document.addEventListener('input', e => { if(e.target.id === 'q'){ term = e.target.value.toLowerCase().trim(); const pos = e.target.selectionStart; route(); const q = $('#q'); if(q){q.focus();q.setSelectionRange(pos,pos);} } else if(e.target.id==='lessonFilter'){ const q=e.target.value.toLowerCase().trim(); $('#lessonList')?.querySelectorAll('button[data-ls]').forEach(b=>b.hidden=!b.textContent.toLowerCase().includes(q)); } });
+document.addEventListener('change', e => { if(e.target.id === 'fp'){ fprice = e.target.value; route(); } if(e.target.id === 'so'){ sort = e.target.value; route(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.ov.on').forEach(o => o.classList.remove('on')); });
+if(PV){ const b = $('#bAdmin'); if(b) b.remove(); }
+route(); syncAccess();
+</script>
+</body>
+</html>
